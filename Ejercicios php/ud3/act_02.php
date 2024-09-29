@@ -8,6 +8,7 @@
 */
 $mes = "febrero";
 $year = 2023;
+$ndias = 0;
 
 switch ($mes) {
     case "enero":
@@ -17,22 +18,20 @@ switch ($mes) {
     case "agosto":
     case "octubre":
     case "diciembre":
-        echo "$mes de $year tiene 31 días";
+        $ndias = 31;
         break;
     case "abril":
     case "junio":
     case "septiembre":
     case "noviembre":
-        echo "$mes de $year tiene 30 días";
+        $ndias = 30;
         break;
     case "febrero":
         if ((($year % 4 == 0) && ($year % 100 != 0)) || ($year % 400== 0)) {
-            echo "$mes de $year tiene 29 dias";
+            $ndias = 29;
         } else {
-            echo "$mes de $year tiene 28 días";
+            $ndias = 28;
         }
-        break;
-    default:
-        echo "Lo siento pero alguno de los datos introducidos no es correcto compruebelos";
 }
+echo "$mes de $year tiene $ndias días";
 ?>

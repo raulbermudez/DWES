@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercio 3 php</title>
+    <title>Ejercio 3 - Bucles php</title>
     <style>
         .code {
             margin-top: 70px;
@@ -51,6 +51,6 @@
     </table>
     </div>
     <div class="code">
-        <button type="button"><a href="https://github.com/Feloje20/unidad_3/blob/main/bucles/ejercicio_3.php">Ver código</a></button>
+        <button type="button"><a href="https://github.com/raulbermudez/-Servidor-Desarrollo-de-Aplicaciones-Web-en-Entorno-Servidor/blob/master/Ejercicios%20php/ud3/bucles/act_03.php">Ver código</a></button>
     </div>   
 </body>

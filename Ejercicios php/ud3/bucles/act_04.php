@@ -36,7 +36,7 @@
                 // La X sirve para que me pase el numero a hexadecimal
 
                 $color = sprintf("#%02X%02X%02X", $rojo, $verde, $azul);
-                echo "<tr><div style='background-color: $color;'>$color</div></tr>";
+                echo "<tr><div style='background-color: $color;'><a href=color.html>$color</a></div></tr>";
             }
         }
         echo "</td>";

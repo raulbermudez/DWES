@@ -3,8 +3,8 @@
 /**
 * 2. Carga en variables mes y año e indica el número de días del mes. Utiliza la
 * estructura de control switch
-@author = Raúl Bermúdez González
-@date = 26/09/2024
+* @author = Raúl Bermúdez González
+* @date = 26/09/2024
 */
 $mes = "febrero";
 $year = 2023;

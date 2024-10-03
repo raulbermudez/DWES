@@ -1,8 +1,8 @@
 <?php
 /**
 * Carga fecha de nacimiento en variables y calcula la edad.
-@author = Raúl Bermúdez González
-@date = 26/09/2024
+* @author = Raúl Bermúdez González
+* @date = 26/09/2024
 */
 $dia = 12;
 $mes = 3;

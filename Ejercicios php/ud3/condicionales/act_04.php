@@ -4,8 +4,8 @@
 *de la estación del año en la que nos encontremos y un color de fondo en función de
 *la hora del día. 
 
-@author = Raúl Bermúdez González
-@date = 26/09/2024
+* @author = Raúl Bermúdez González
+* @date = 26/09/2024
 */
 
 $color_fondo = '#000000';

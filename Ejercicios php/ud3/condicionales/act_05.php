@@ -4,8 +4,8 @@
     *    Perfil Administrador: Pagina1, Pagina2, Pagina3, Pagina4
     *    Perfil Usuario: Pagina1, Pagina2
 
-@author = Raúl Bermúdez González
-@date = 26/09/2024
+* @author = Raúl Bermúdez González
+* @date = 26/09/2024
 */
 
 // Esta variable es para saber que enlaces poner si los de usuario o los de administrador

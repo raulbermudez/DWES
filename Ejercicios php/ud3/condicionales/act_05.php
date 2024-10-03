@@ -37,7 +37,7 @@ $tipo_perfil = 'usuario'
         <a href="#">Enlace 4</a>
     <?php endif; ?>
     <div class="code">
-        <button type="button"><a href="https://github.com/raulbermudez/-Servidor-Desarrollo-de-Aplicaciones-Web-en-Entorno-Servidor/blob/master/Ejercicios%20php/ud3/condicionales/act_05.php">Ver código</a></button>
+        <button type="button"><a href="https://github.com/raulbermudez/DWES/blob/master/Ejercicios%20php/ud3/condicionales/act_05.php">Ver código</a></button>
     </div>   
 </body>
 </html>

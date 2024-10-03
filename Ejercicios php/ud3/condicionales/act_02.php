@@ -35,3 +35,21 @@ switch ($mes) {
 }
 echo "$mes de $year tiene $ndias días";
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercio 2 php</title>
+    <style>
+        .code {
+            margin-top: 70px;
+        }
+    </style>
+</head>
+<body>
+    <div class="code">
+        <button type="button"><a href="https://github.com/raulbermudez/DWES/blob/master/Ejercicios%20php/ud3/condicionales/act_02.php">Ver código</a></button>
+    </div>   
+</body>
+</html>

@@ -44,7 +44,7 @@ if ($fechaNacimientoObj > $fechaActualObj) {
 </head>
 <body>
     <div class="code">
-        <button type="button"><a href="https://github.com/raulbermudez/DWES/blob/master/Ejercicios%20php/ud3/condicionales/act_03.php">Ver código</a></button>
+        <button type="button"><a href="https://github.com/raulbermudez/DWES/blob/master/EjerciciosPHP/ud3/condicionales/act_03.php">Ver código</a></button>
     </div>   
 </body>
 </html>

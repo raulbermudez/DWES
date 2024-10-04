@@ -74,7 +74,7 @@ echo "<h3>Precio total con descuento del 20%: $precio_con_descuento €</h3>";
 <body>
     <div class="code">
         <button type="button">
-            <a href="https://github.com/raulbermudez/DWES/blob/master/Ejercicios%20php/ud3/arrays/act04.php">Ver código</a>
+            <a href="https://github.com/raulbermudez/DWES/blob/master/EjerciciosPHP/ud3/arrays/act04.php">Ver código</a>
         </button>
     </div>   
 </body>

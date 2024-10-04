@@ -52,7 +52,7 @@ $alumnoElegido = $alumnos[$random];
 
     <div class="code">
         <button type="button">
-            <a href="https://github.com/raulbermudez/DWES/blob/master/Ejercicios%20php/ud3/arrays/act03.php">Ver código</a>
+            <a href="https://github.com/raulbermudez/DWES/blob/master/EjerciciosPHP/ud3/arrays/act03.php">Ver código</a>
         </button>
     </div>   
 </body>

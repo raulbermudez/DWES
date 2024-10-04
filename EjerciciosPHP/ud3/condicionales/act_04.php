@@ -70,7 +70,7 @@ else {
         <img width="100%" height="720" src=<?php echo $estacion_year ?>>
     </header>
     <div class="code">
-        <button type="button"><a href="https://github.com/raulbermudez/DWES/blob/master/Ejercicios%20php/ud3/condicionales/act_04.php">Ver código</a></button>
+        <button type="button"><a href="https://github.com/raulbermudez/DWES/blob/master/EjerciciosPHP/ud3/condicionales/act_04.php">Ver código</a></button>
     </div>   
 </body>
 </html>

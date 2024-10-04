@@ -152,7 +152,7 @@ $paises = array(
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 3 PHP</title>
+    <title>Ejercicio 1 PHP</title>
     <style>
         .code {
             margin-top: 70px;

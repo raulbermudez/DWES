@@ -7,9 +7,9 @@
 $ejercicios = array (
     "Unidad 3" => [ 
         "array" => [
-            "Ejercicio 1" => ["./EjerciciosPHP/ud3/array/act01.php", "Almacenamos distinta información en arrays: meses del añlo, tablero de barco, notas alumno, etc."],
-            "Ejercicio 3" => ["./EjerciciosPHP/ud3/array/act03.php", "Se elige un nombre al azar de un array"],
-            "Ejercicio 4" => ["./EjerciciosPHP/ud3/array/ej_01_3.php", "Se crea un menu de primeros, segundos y postres"]
+            "Ejercicio 1" => ["./EjerciciosPHP/ud3/arrays/act01.php", "Almacenamos distinta información en arrays: meses del añlo, tablero de barco, notas alumno, etc."],
+            "Ejercicio 3" => ["./EjerciciosPHP/ud3/arrays/act03.php", "Se elige un nombre al azar de un array"],
+            "Ejercicio 4" => ["./EjerciciosPHP/ud3/arrays/act04.php", "Se crea un menu de primeros, segundos y postres"]
         ],
         "bucles" => [
             "Ejercicio 1" => ["./EjerciciosPHP/ud3/bucles/act_01.php", "Escribir los 10 primeros numeros"],
@@ -29,28 +29,3 @@ $ejercicios = array (
 );  
 
 return $ejercicios;
-
-?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 2 PHP</title>
-    <style>
-        .code {
-            margin-top: 70px;
-        }
-        .alumno {
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <div class="code">
-        <button type="button">
-            <a href="https://github.com/raulbermudez/DWES/blob/master/EjerciciosPHP/ud3/arrays/act02.php">Ver código</a>
-        </button>
-    </div>   
-</body>
-</html>

@@ -2,48 +2,58 @@
 /**
  * Crear un array con los alumnos de clase y permitir la selección aleatoria de uno de
  * ellos. El resultado debe mostrar nombre y fotografía.
-    * @author = Raúl Bermúdez González
-    * @date = 29-09-2024
+ * @author Raúl Bermúdez González
+ * @date 29-09-2024
 */
+
+// Array de alumnos con nombre y ruta de la fotografía
 $alumnos = array(
-    'Raúl Bermúdez González', 'Carlos Borreguero Redondo', 
-    'Álvaro Cañas González', 'Miguel Carmona Cicchetti', 
-    'Alejandro Carrasco Castellano', 'Mostafa Cherif Mouaki Almabouada', 
-    'Alejandro Coronado Ortega', 'Juan Diego Delgado Morente', 
-    'Marlon Jafet Escoto García', 'Ángel Fernández Ariza', 
-    'Alejandro Fernández Arrayás', 'Daniel Fernández Balsera', 
-    'Jesús Ferrer López', 'Jesús Frías Rojas', 
-    'Manuel Galán Navas', 'Víctor García Báez', 
-    'Lucía García Díaz', 'Adrián González Martínez', 
-    'Jesús López Funes', 'Enrique Mariño Jiménez',
-    'Oscar Martín-Castaño Carrillo', 'José María Mayén Pérez',
-    'Pablo Mérida Velasco', 'Héctor Mora Sánchez',
-    'Luis Pérez Cantarero', 'Carlos Romero Romero',
-    'Javier Ruiz Molero', 'Alejandro Vaquero Abad',
-    'Luis Miguel Villén Moyano'
+    array('nombre' => 'Raúl Bermúdez González', 'foto' => 'fotos/raul.jpg'),
+    array('nombre' => 'Carlos Borreguero Redondo', 'foto' => 'fotos/carlos.jpg'),
+    array('nombre' => 'Álvaro Cañas González', 'foto' => 'fotos/alvaro.jpg'),
+    array('nombre' => 'Miguel Carmona Cicchetti', 'foto' => 'fotos/miguel.jpg'),
+    array('nombre' => 'Alejandro Carrasco Castellano', 'foto' => 'fotos/alejandro.jpg'),
+    // Aquí añadirías el resto de los alumnos con sus respectivas fotos
 );
 
+// Selección aleatoria de un alumno
 $longitudArray = count($alumnos);
-$random = rand(0, $longitudArray);
+$random = rand(0, $longitudArray - 1);  // El índice máximo es longitudArray - 1
 
-echo "El alumno elegido es: " + $alumnos[$random];
+$alumnoElegido = $alumnos[$random];
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercio 3 php</title>
+    <title>Ejercicio 3 PHP</title>
     <style>
         .code {
             margin-top: 70px;
         }
+        .alumno {
+            text-align: center;
+        }
+        .alumno img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
+    <div class="alumno">
+        <h2>El alumno elegido es: <?php echo $alumnoElegido['nombre']; ?></h2>
+        <img src="<?php echo $alumnoElegido['foto']; ?>" alt="Foto de <?php echo $alumnoElegido['nombre']; ?>">
+    </div>
+
     <div class="code">
-        <button type="button"><a href="https://github.com/raulbermudez/DWES/blob/master/Ejercicios%20php/ud3/arrays/act03.php">Ver código</a></button>
+        <button type="button">
+            <a href="https://github.com/raulbermudez/DWES/blob/master/Ejercicios%20php/ud3/arrays/act03.php">Ver código</a>
+        </button>
     </div>   
 </body>
 </html>

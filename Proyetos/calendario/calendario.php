@@ -1,57 +1,45 @@
 <?php
-/**
- *Dado el mes y año almacenados en variables, escribir un programa que muestre el
- *calendario mensual correspondiente. Marcar el día actual en verde y los festivos
- *en rojo.
- * @author Raul Bermudez Gonzalez
- * @date = 30/09/2024
-*/
-
-$mes = 7;
-$year = 2024;
+$mes = 7;  // Mes actual (julio)
+$year = 2024;  // Año actual
 $fondo = "no";
 $numeroX = 0;
-$dia_actual = date("d"); // Me da el dia en formato númerico, NO el dia de la semana
-$mes_actual = date("m");
-$year_Actual = date("Y");
 
-$dia = $dias_en_mes = cal_days_in_month(CAL_GREGORIAN, $mes, $year); // Para saber el numero de dias del mes
+$dia_actual = date("j"); // Día actual (numérico)
+$mes_actual = date("n"); // Mes actual (numérico)
+$year_Actual = date("Y"); // Año actual
 
-$dia_inicio = date("l", mktime(0, 0, 0, $mes, 1, $year)); // Para saber el dia de la semana ques 1
+$dias_en_mes = cal_days_in_month(CAL_GREGORIAN, $mes, $year); // Número de días del mes
 
-switch ($dia_inicio){
-    case "Monday":
-        $numeroX = 0;
-        break;
-    case "Tuesday":
-        $numeroX = 1;
-        break;
-    case "Wednesday":
-        $numeroX = 2;
-        break;
-    case "Thursday":
-        $numeroX = 3;
-        break;
-    case "Friday":
-        $numeroX = 4;
-        break;
-    case "Sunday":
-        $numeroX = 5;
-        break;
-    case "Saturday":
-        $numeroX = 6;
-        break;
-}
+// Primer día del mes
+$dia_inicio = date("w", mktime(0, 0, 0, $mes, 1, $year)); // Día de la semana del 1 del mes (0=domingo, 6=sábado)
+
+// Ajustar el día de inicio de acuerdo al formato (lunes=0, domingo=6)
+$numeroX = ($dia_inicio == 0) ? 6 : $dia_inicio - 1; // Convertir domingo (0) a 6 para la lógica de celdas
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercio 4 - Bucles php</title>
+    <title>Ejercicio Calendario PHP</title>
     <style>
-        .code {
-            margin-top: 50px;
+        .festivo {
+            background-color: red;
+            color: white;
+        }
+        .actual {
+            background-color: green;
+            color: white;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            width: 14.28%; /* 100% / 7 días */
+            height: 50px;
+            text-align: center;
         }
     </style>
 </head>
@@ -61,7 +49,7 @@ switch ($dia_inicio){
         <tr>
             <th>Lunes</th>
             <th>Martes</th>
-            <th>Miercoles</th>
+            <th>Miércoles</th>
             <th>Jueves</th>
             <th>Viernes</th>
             <th>Sábado</th>
@@ -69,74 +57,40 @@ switch ($dia_inicio){
         </tr>
         <?php
         echo "<tr>";
-        for ($i = 0; $i <= $numeroX; $i++) {
-            echo "<td>X</td>";
+        // Imprimir celdas vacías hasta el primer día del mes
+        for ($i = 0; $i < $numeroX; $i++) {
+            echo "<td></td>";
         }
 
-        for ($i = 1; $i <= $dia; $i++){
-
-            if (($i = 1) && ($month = 1)){
-                $fondo = "festivo"; 
-                echo "<td class= festivo>$i</td>";
+        // Imprimir los días del mes
+        for ($r = 1; $r <= $dias_en_mes; $r++) {
+            // Festivos manualmente añadidos
+            if (($r == 1 && $mes == 1) || 
+                ($r == 6 && $mes == 1) || 
+                ($r == 15 && $mes == 8) || 
+                ($r == 12 && $mes == 10) || 
+                ($r == 1 && $mes == 11) || 
+                ($r == 25 && $mes == 12) ||
+                (date("w", mktime(0, 0, 0, $mes, $r, $year)) == 0) // Domingo como festivo
+            ) {
+                echo "<td class='festivo'>$r</td>";
             }
-            elseif((($i = 6) && ($month = 1))){
-                $fondo = "festivo"; 
-                echo "<td class= festivo>$i</td>";
+            // Día actual
+            elseif ($r == $dia_actual && $mes == $mes_actual && $year == $year_Actual) {
+                echo "<td class='actual'>$r</td>";
             }
-            elseif (($i = 28) && ($mes = 2)){
-                $fondo = "festivo"; 
-                echo "<td class= festivo>$i</td>";
-            }
-            elseif (($i = 1) && ($mes = 5)){
-                $fondo = "festivo"; 
-                echo "<td class= festivo>$i</td>";
-            }
-            elseif (($i = 15) && ($mes = 8)){
-                $fondo = "festivo"; 
-                echo "<td class= festivo>$i</td>";
-            }
-            elseif (($i = 12) && ($mes = 10)){
-                $fondo = "festivo"; 
-                echo "<td class= festivo>$i</td>";
-            }
-            elseif (($i = 1) && ($mes = 11)){
-                $fondo = "festivo"; 
-                echo "<td class= festivo>$i</td>";
-            }
-            elseif (($i = 6) && ($mes = 12)){
-                $fondo = "festivo"; 
-                echo "<td class= festivo>$i</td>";
-            }
-            elseif (($i = 9) && ($mes = 12)){
-                $fondo = "festivo"; 
-                echo "<td class= festivo>$i</td>";
-            }
-            elseif (($i = 25) && ($mes = 12)){
-                $fondo = "festivo"; 
-                echo "<td class= festivo>$i</td>";
-            }
-            elseif (($i + $dia_inicio) % 7 == 0) { // Controlo los domingos
-                $fondo = "festivo"; 
-                echo "<td class= festivo>$i</td>";
-            }
-            elseif (($dia = $dia_actual) && ($mes = $mes_actual) && ($year = $year_Actual)){
-                $fondo = "actual"; 
-                echo "<td class= actual>$i</td>";
-            }
-            else{
-                $fondo = "no";
-                echo "<td>$i</td>";
+            // Días normales
+            else {
+                echo "<td>$r</td>";
             }
 
-            if (($i + $dia_inicio) % 7 == 0) {
+            // Cambiar fila después de cada domingo
+            if (($r + $numeroX) % 7 == 0) {
                 echo "</tr><tr>";
             }
         }
         echo "</tr>";
         ?>
     </table>
-    <div class="code">
-        <button type="button"><a href="https://github.com/raulbermudez/DWES/blob/master/Proyectos/calendario/act_05.php">Ver código</a></button>
-    </div>   
 </body>
 </html>

@@ -25,7 +25,7 @@ $ejercicios = array (
             "Ejercicio 5" => ["./EjerciciosPHP/ud3/condicionales/act_05.php", "Cambiar informacion de las páginas según el usuario."] 
         ]
     ],
-    "Proyectos" => ["calendario" => ["calendario" => ["./Proyectos/calendario/calendario.php", "Primer proyecto el calendario."]]]
+    "Proyectos" => ["calendario" => ["calendario" => ["./Proyetos/calendario/calendario.php", "Primer proyecto el calendario."]]]
 );  
 
 return $ejercicios;

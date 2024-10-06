@@ -1,5 +1,5 @@
 <?php
-$mes = 7;  // Mes actual (julio)
+$mes = 10;  // Mes actual (julio)
 $year = 2024;  // Año actual
 $fondo = "no";
 $numeroX = 0;
@@ -16,6 +16,20 @@ $dia_inicio = date("w", mktime(0, 0, 0, $mes, 1, $year)); // Día de la semana d
 // Ajustar el día de inicio de acuerdo al formato (lunes=0, domingo=6)
 $numeroX = ($dia_inicio == 0) ? 6 : $dia_inicio - 1; // Convertir domingo (0) a 6 para la lógica de celdas
 
+$diasFestivos = array(
+    array(1, 1, "nacional"),
+    array(6, 1, "nacional"),
+    array(28, 2, "comunidad"),
+    array(1, 5, "nacional"),
+    array(15, 8, "nacional"),
+    array(8, 9, "local"),
+    array(12, 10, "nacional"),
+    array(24, 10, "local"),
+    array(1, 11, "nacional"),
+    array(6, 12, "nacional"),
+    array(8, 12, "nacional"),
+    array(25, 12, "nacional")
+)
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,8 +38,18 @@ $numeroX = ($dia_inicio == 0) ? 6 : $dia_inicio - 1; // Convertir domingo (0) a 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio Calendario PHP</title>
     <style>
-        .festivo {
-            background-color: red;
+        .comunidad {
+            background-color: #FF9999;
+            color: white;
+        }
+
+        .nacional {
+            background-color: #FF6666;
+            color: white;
+        }
+
+        .local {
+            background-color: #FFCCCC;
             color: white;
         }
         .actual {
@@ -64,23 +88,29 @@ $numeroX = ($dia_inicio == 0) ? 6 : $dia_inicio - 1; // Convertir domingo (0) a 
 
         // Imprimir los días del mes
         for ($r = 1; $r <= $dias_en_mes; $r++) {
-            // Festivos manualmente añadidos
-            if (($r == 1 && $mes == 1) || 
-                ($r == 6 && $mes == 1) || 
-                ($r == 15 && $mes == 8) || 
-                ($r == 12 && $mes == 10) || 
-                ($r == 1 && $mes == 11) || 
-                ($r == 25 && $mes == 12) ||
-                (date("w", mktime(0, 0, 0, $mes, $r, $year)) == 0) // Domingo como festivo
-            ) {
-                echo "<td class='festivo'>$r</td>";
+            $isFestivo = false;
+
+            // Comprobar si el día es festivo
+            foreach ($diasFestivos as $festivo) {
+                if ($festivo[0] == $r && $festivo[1] == $mes) {
+                    echo "<td class='$festivo[2]'>$r</td>";
+                    $isFestivo = true;
+                    break; // Salir del bucle si es festivo
+                }
             }
+
+            // Verificar si es domingo
+            if (date("w", mktime(0, 0, 0, $mes, $r, $year)) == 0) { // 0 = Domingo
+                echo "<td class='nacional'>$r</td>";
+                $isFestivo = true; // Marcar como festivo
+            }
+
             // Día actual
-            elseif ($r == $dia_actual && $mes == $mes_actual && $year == $year_Actual) {
+            if (!$isFestivo && $r == $dia_actual && $mes == $mes_actual && $year == $year_Actual) {
                 echo "<td class='actual'>$r</td>";
             }
             // Días normales
-            else {
+            elseif (!$isFestivo) {
                 echo "<td>$r</td>";
             }
 

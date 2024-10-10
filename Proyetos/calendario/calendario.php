@@ -1,20 +1,19 @@
 <?php
-$mes = 10;  // Mes actual (julio)
-$year = 2024;  // Año actual
+$mes = 10;  
+$year = 2024;  
 $fondo = "no";
 $numeroX = 0;
 
-$dia_actual = date("j"); // Día actual (numérico)
-$mes_actual = date("n"); // Mes actual (numérico)
-$year_Actual = date("Y"); // Año actual
+$dia_actual = date("j"); 
+$mes_actual = date("n"); 
+$year_Actual = date("Y"); 
 
-$dias_en_mes = cal_days_in_month(CAL_GREGORIAN, $mes, $year); // Número de días del mes
+$dias_en_mes = cal_days_in_month(CAL_GREGORIAN, $mes, $year);
 
 // Primer día del mes
-$dia_inicio = date("w", mktime(0, 0, 0, $mes, 1, $year)); // Día de la semana del 1 del mes (0=domingo, 6=sábado)
+$dia_inicio = date("w", mktime(0, 0, 0, $mes, 1, $year));
 
-// Ajustar el día de inicio de acuerdo al formato (lunes=0, domingo=6)
-$numeroX = ($dia_inicio == 0) ? 6 : $dia_inicio - 1; // Convertir domingo (0) a 6 para la lógica de celdas
+$numeroX = ($dia_inicio == 0) ? 6 : $dia_inicio - 1; 
 
 $diasFestivos = array(
     array(1, 1, "nacional"),

@@ -10,6 +10,7 @@
  * @date 29-09-2024
  */
 
+echo "Este ejercicio no tiene vista pulsa el botón para ver el código"; 
 // Array de los meses del año
 $meses = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
 

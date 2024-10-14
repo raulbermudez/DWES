@@ -1,6 +1,4 @@
-<?php
-$mes = 10;  
-$year = 2024;  
+<?php 
 $fondo = "no";
 $numeroX = 0;
 
@@ -8,10 +6,10 @@ $dia_actual = date("j");
 $mes_actual = date("n"); 
 $year_Actual = date("Y"); 
 
-$dias_en_mes = cal_days_in_month(CAL_GREGORIAN, $mes, $year);
+$dias_en_mes = cal_days_in_month(CAL_GREGORIAN, $mes_actual, $year_Actual);
 
 // Primer día del mes
-$dia_inicio = date("w", mktime(0, 0, 0, $mes, 1, $year));
+$dia_inicio = date("w", mktime(0, 0, 0, $mes_actual, $year_Actual));
 
 $numeroX = ($dia_inicio == 0) ? 6 : $dia_inicio - 1; 
 
@@ -67,7 +65,7 @@ $diasFestivos = array(
     </style>
 </head>
 <body>
-    <h1>Calendario de <?php echo $mes ?> de <?php echo $year ?></h1>
+    <h1>Calendario de <?php echo $mes_actual ?> de <?php echo $year_Actual ?></h1>
     <table border="1">
         <tr>
             <th>Lunes</th>
@@ -91,7 +89,7 @@ $diasFestivos = array(
 
             // Comprobar si el día es festivo
             foreach ($diasFestivos as $festivo) {
-                if ($festivo[0] == $r && $festivo[1] == $mes) {
+                if ($festivo[0] == $r && $festivo[1] == $mes_actual) {
                     echo "<td class='$festivo[2]'>$r</td>";
                     $isFestivo = true;
                     break; // Salir del bucle si es festivo
@@ -99,13 +97,13 @@ $diasFestivos = array(
             }
 
             // Verificar si es domingo
-            if (date("w", mktime(0, 0, 0, $mes, $r, $year)) == 0) { // 0 = Domingo
+            if (date("w", mktime(0, 0, 0, $mes_actual, $r, $year_Actual)) == 0) { // 0 = Domingo
                 echo "<td class='nacional'>$r</td>";
                 $isFestivo = true; // Marcar como festivo
             }
 
             // Día actual
-            if (!$isFestivo && $r == $dia_actual && $mes == $mes_actual && $year == $year_Actual) {
+            if (!$isFestivo && $r == $dia_actual && $mes_actual == $mes_actual && $year_Actual == $year_Actual) {
                 echo "<td class='actual'>$r</td>";
             }
             // Días normales

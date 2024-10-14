@@ -23,6 +23,10 @@ $ejercicios = array (
             "Ejercicio 3" => ["./EjerciciosPHP/ud3/condicionales/act_03.php", "Calcular edad mediante la fecha de nacimiento"],
             "Ejercicio 4" => ["./EjerciciosPHP/ud3/condicionales/act_04.php", "Cambiar HTML según la hora y la estacion del año en la que estemos"],
             "Ejercicio 5" => ["./EjerciciosPHP/ud3/condicionales/act_05.php", "Cambiar informacion de las páginas según el usuario."] 
+        ],
+        "formularios" => [
+            "Ejercicio 3" => ["./EjerciciosPHP/ud3/formularios/act_03.php", "Pedir datos para el curriculum"],
+            "Ejercicio 4" => ["./EjerciciosPHP/ud3/formularios/act_04.php", "Recibes un pais por el formulario y le das su capital y la bandera al usuario"]
         ]
     ],
     "Proyectos" => ["calendario" => ["calendario" => ["./Proyetos/calendario/calendario.php", "Primer proyecto el calendario."]]]

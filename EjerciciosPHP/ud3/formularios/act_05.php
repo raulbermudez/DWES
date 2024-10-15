@@ -47,6 +47,11 @@ if ($lProcesaFormulario){
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Formularios Ejercicio 5</title>
+        <style>
+            .code {
+                margin-top: 70px;
+            }
+        </style>
     </head>
     <body>
         <h1>Suma de números</h1>
@@ -72,5 +77,6 @@ if ($lProcesaFormulario){
             }
         ?>
         </form>
+        <button type="button"><a href="https://github.com/raulbermudez/DWES/blob/master/EjerciciosPHP/ud3/formularios/act_05.php">Ver código</a></button>
     </body>
 </html>

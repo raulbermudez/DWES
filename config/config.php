@@ -30,6 +30,9 @@ $ejercicios = array (
             "Ejercicio 5" => ["./EjerciciosPHP/ud3/formularios/act_05.php", "Pedir el numero de numeros a sumar y luego poner los numeros sumados"]
         ]
     ],
+    "Unidad 4" =>[
+        "cookies" => ["./EjerciciosPHP/ud4/formularios/act04.php", "Añadir un formulario de login y passsword y casilla de verdificacion"]
+    ],
     "Proyectos" => ["calendario" => ["calendario" => ["./Proyetos/calendario/calendario.php", "Primer proyecto el calendario."]]]
 );  
 

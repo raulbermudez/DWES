@@ -31,7 +31,12 @@ $ejercicios = array (
         ]
     ],
     "Unidad 4" =>[
-        "cookies" => ["./EjerciciosPHP/ud4/formularios/act04.php", "Añadir un formulario de login y passsword y casilla de verdificacion"]
+        "cookies" => [
+            "Ejercicio 1" => ["./EjerciciosPHP/ud4/cookies/act01.php", "Crear una cookie y ver su estado"],
+            "Ejercicio 2" => ["./EjerciciosPHP/ud4/cookies/act01_1.php", "Eliminar la cookie del ejercicio 1"],
+            "Ejercicio 3" => ["./EjerciciosPHP/ud4/cookies/act03.php", "Añadir un formulario de login y passsword y casilla de verdificacion"],
+            "Ejercicio 4" => ["./EjerciciosPHP/ud4/cookies/act04.php", "Haz un contador de las veces que ntras a la pagina con la cookie del 1"]
+        ]
     ],
     "Proyectos" => ["calendario" => ["calendario" => ["./Proyetos/calendario/calendario.php", "Primer proyecto el calendario."]]]
 );  

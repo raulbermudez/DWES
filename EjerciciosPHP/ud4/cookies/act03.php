@@ -74,6 +74,8 @@ if ($lProcesaFormulario){
         <?php
         }
         ?>
-        
+        <div class="code">
+            <button type="button"><a href="https://github.com/raulbermudez/DWES/blob/master/EjerciciosPHP/ud4/cookies/act03.php">Ver código</a></button>
+        </div>
     </body>
 </html>

@@ -4,13 +4,21 @@
  * @author = Raúl Bermúdez González
  * @date = 17-10-2024
  */
-
+// Inicializacion de variables
 $usuario = "";
 $contrasena = "";
-$guardar;
-// Compruebo que el formulario se ha enviado
+$guardar = false;
 $lProcesaFormulario = false;
+$errorUsuario="";
+$errorContrasena = "";
 
+// Compruebo que la cookie esta creada
+if ((isset($_COOKIE['cUsuario'])) && (isset($_COOKIE['cContrasena']))){
+    $usuario = $_COOKIE['cUsuario'];
+    $contrasena = $_COOKIE['cContrasena'];
+}
+
+// Compruebo que el formulario se ha enviado
 if (isset($_POST['enviar'])){
     $lProcesaFormulario = true;
 }
@@ -19,15 +27,26 @@ if (isset($_POST['enviar'])){
 if ($lProcesaFormulario){
     $usuario = $_POST['usuario'];
     $contrasena = $_POST['contrasena'];
-    // Compruebo la casilla de checkbox(la que sera la cookie)
-    if ($_POST['guardar']){
-        $guardar = $_POST['guardar'];
-    }else{
-        $guardar = false;
-    }
+
     // Compruebo que no haya ningun campo vacio
-    if (($usuario == "") || ($contrasena == "")){
+    if ($usuario == ""){
         $lProcesaFormulario = false;
+        $errorUsuario = "Campo requerido";
+    }
+    
+    if ($contrasena == ""){
+        $lProcesaFormulario = false;
+        $errorContrasena = "Campo requerido"; 
+    }
+
+    // Compruebo la casilla de checkbox(la que sera la cookie)
+    if (isset($_POST['guardar'])){
+        $guardar = true;
+        setcookie("cUsuario", $usuario, time()+3600);
+        setcookie("cContrasena", $contrasena, time()+3600);
+    }else{
+        setcookie("cUsuario", $usuario, time()-3600);
+        setcookie("cContrasena", $contrasena, time()-3600);
     }
 }
 ?>
@@ -40,13 +59,21 @@ if ($lProcesaFormulario){
     </head>
     <body>
         <!-- Creación del formulario -->
+        <?php
+        if ($lProcesaFormulario){
+            echo "Usuario: " . $usuario . "<br/>Contraseña: " . $contrasena;
+        }else{
+        ?>
         <form action="" method="post">
             <label>Usuario:</label>
-            <input type="text" name="usuario" value="<?php echo $usuario ?>"/><?php if ($usuario == "")  echo "Requerido" ?><br/>
+            <input type="text" name="usuario" value="<?php echo $usuario ?>"/><?php echo $errorUsuario; ?><br/>
             <label>Contraseña:</label>
-            <input type="text" name="contrasena" value="<?php echo $contrasena ?>"/><?php if ($contrasena == "")  echo "Requerido"?> <br/>
-            <input type="checkbox" name="guardar" checked>¿Quieres guardar los datos?
+            <input type="text" name="contrasena" value="<?php echo $contrasena ?>"/><?php echo $errorContrasena; ?><br/>
+            <input type="checkbox" name="guardar" <?php if ($guardar) echo "checked"?>>¿Quieres guardar los datos?
             <br/><button type="submit" name="enviar">Enviar</button>
-        </form>
+        <?php
+        }
+        ?>
+        
     </body>
 </html>

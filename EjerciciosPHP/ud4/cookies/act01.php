@@ -15,4 +15,5 @@ if (isset($_COOKIE['c1'])){
     echo $_COOKIE['c1'];
 }
 
+echo "<button><a href='https://github.com/raulbermudez/DWES/tree/master/EjerciciosPHP/ud4/sesiones/act_01.ph'>Código</a></button>";
 echo "<br/> Fin";

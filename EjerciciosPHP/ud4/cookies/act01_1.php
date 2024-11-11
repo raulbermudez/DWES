@@ -12,4 +12,4 @@ if (isset($_COOKIE['c1'])){
     setcookie("c1", "Hola Mundo", time()-60);
     echo "Cookie borrada";
 }
-echo "<button><a href='https://github.com/raulbermudez/DWES/tree/master/EjerciciosPHP/ud4/sesiones/act_01.ph'>Código</a></button>";
+echo "<button><a href='https://github.com/raulbermudez/DWES/tree/master/EjerciciosPHP/ud4/cookies/act01_1.php'>Código</a></button>";

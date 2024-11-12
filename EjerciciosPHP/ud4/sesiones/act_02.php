@@ -32,14 +32,14 @@ if (!isset($_SESSION['usuario'])) {
 if (!isset($_SESSION['puzle_index1']) || !isset($_SESSION['puzle_index2'])) {
     $_SESSION['puzle_index1'] = random_int(0, count($puzles) - 1);
     $_SESSION['puzle_index2'] = random_int(0, count($puzles) - 1);
+    $_SESSION['intentos'] = 0;
+    $_SESSION['aciertos'] = 0;
 }
 
 // Si el usuario ha presionado el botón de reiniciar, randomizamos los índices
 if (isset($_POST['reiniciar'])) {
     $_SESSION['puzle_index1'] = random_int(0, count($puzles) - 1);
     $_SESSION['puzle_index2'] = random_int(0, count($puzles) - 1);
-    $_SESSION['intentos'] = 0;
-    $_SESSION['aciertos'] = 0;
 }
 
 // Si se ha pulsado un botón, incrementamos el índice correspondiente
@@ -63,6 +63,8 @@ if (isset($_POST["resolver"])) {
     } else {
         $resolucion = "<p>Lo siento, no has resuelto el puzle.</p><br/>";
     }
+    $_SESSION['puzle_index1'] = random_int(0, count($puzles) - 1);
+    $_SESSION['puzle_index2'] = random_int(0, count($puzles) - 1);
 }
 
 
@@ -91,7 +93,7 @@ $current_index2 = $_SESSION['puzle_index2'];
         <input type="submit" name="reiniciar" value ="reiniciar"><br/>
     </form>
     <?php echo $resolucion; 
-        echo "Aciertos: " . $_SESSION['aciertos'];
+        echo "Aciertos: " . $_SESSION['aciertos'] . "</br>";
         echo "Intentos: " . $_SESSION['intentos'];?>
     </br><a href="cierre2.php">cerrar sesión</a>
     <div class="ver_codigo">

@@ -5,5 +5,5 @@ session_unset();
 
 session_destroy();
 
-header("location:ej_02.php");
+header("location:act_02.php");
 ?>

@@ -97,7 +97,7 @@ $current_index2 = $_SESSION['puzle_index2'];
         echo "Intentos: " . $_SESSION['intentos'];?>
     </br><a href="cierre2.php">cerrar sesión</a>
     <div class="ver_codigo">
-        <button type="button"><a href="https://github.com/Feloje20/unidad_4/blob/main/sesiones/ej_02.php">Ver código</a></button>
+        <button type="button"><a href="https://github.com/raulbermudez/DWES/blob/master/EjerciciosPHP/ud4/sesiones/act_02.php">Ver código</a></button>
     </div> 
 </body>
 </html>

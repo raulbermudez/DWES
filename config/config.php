@@ -27,7 +27,8 @@ $ejercicios = array (
         "formularios" => [
             "Ejercicio 3" => ["./EjerciciosPHP/ud3/formularios/act_03.php", "Pedir datos para el curriculum"],
             "Ejercicio 4" => ["./EjerciciosPHP/ud3/formularios/act_04.php", "Recibes un pais por el formulario y le das su capital y la bandera al usuario"],
-            "Ejercicio 5" => ["./EjerciciosPHP/ud3/formularios/act_05.php", "Pedir el numero de numeros a sumar y luego poner los numeros sumados"]
+            "Ejercicio 5" => ["./EjerciciosPHP/ud3/formularios/act_05.php", "Pedir el numero de numeros a sumar y luego poner los numeros sumados"],
+            "Ejercicio repaso examen" => ["./EjerciciosPHP/Ejemplos/formularios/ej5/ej5.php", "Hacer un formulario con arrays y validarlo"]
         ]
     ],
     "Unidad 4" =>[

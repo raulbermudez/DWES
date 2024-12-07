@@ -81,7 +81,7 @@ if (isset($_POST['enviar'])){
 
     // Validamos el email
     if (empty($email)){
-        $emailError = "El campo email no puede estar vacio";
+        $emailError = $errores['email'];
         $errorValidacion = true;
     } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
         $emailError = "El formato del email no es valido";

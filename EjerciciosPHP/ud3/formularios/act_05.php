@@ -26,7 +26,7 @@ if ($lProcesaFormulario){
                 if ($clave != 'numero'){
                     $suma += $valor;
                 }
-                $numerosSumados[] += $valor;
+                $numerosSumados += $valor;
             }
 
         };
@@ -63,7 +63,7 @@ if ($lProcesaFormulario){
             if ($lProcesaFormulario){
                 for ($i = 1; $i <= $numerosSumados[0]; $i++){
                     echo "<label>Numero: $i</label>";
-                    echo "<input type='number' name ='numero$i' value='$numerosSumados[$i]'/><br/>";
+                    echo "<input type='number' name='numero$i' value='" . $numerosSumados[$i] . "'/><br/>";
                 }
                 echo "<button type='submit' name='sumar'>Sumar</button><br/>";
                 if ($lProcesaSuma){

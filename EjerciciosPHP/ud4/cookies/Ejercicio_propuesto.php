@@ -1,101 +1,180 @@
 <?php
-// Inicialización de variables
-$huecos = 0;
-$posicionesHuecos = [];
+    /**
+    * Generador de preguntas sobre tablas de multiplicar usando formularios, con dos solicitudes.
+    * @autor = Raúl Bermúdez González
+    * @date = 20/10/2024
+    */
 
-// Verificar si se ha enviado el formulario para generar la tabla de multiplicaciones
-if (isset($_POST['enviar_numeros'])) {
-    // Obtener el número de huecos del formulario
-    $huecos = $_POST['huecos'];
+    // Incialización de variables
+    $numTablas; // Número de tablas d emultiplicar
+    $numPreguntas; // Número de huecos en blanco en la tabla
+    $tabla; // Esta variable almacenará el array de la tabla.
+    $respuestas = []; // Variable que almacena las respuestas de los usuarios en la tabla.
+    $min = 0; // Mínimo en la generación aleatoria de nuestra tabla.
+    $max;   // Máximo en la generación aleatoria de nuestra tabla.
+    $lprocesaformulario = false;
+    $lprocesatabla = false;
 
-    // Generar posiciones aleatorias para los huecos
-    $totalMultiplicaciones = 100; // 10x10 tabla
-    $posicionesHuecos = array_rand(range(0, $totalMultiplicaciones - 1), $huecos);
+    // Inicializar variables de error
+    $errorTablas = "";
+    $errorPreguntas = "";
 
-    // Convertir a array si solo se seleccionó un hueco
-    if (!is_array($posicionesHuecos)) {
-        $posicionesHuecos = [$posicionesHuecos];
+    // Comprobamos que el formulario se ha enviado.
+    if((isset($_POST["generar"]))){
+        $lprocesaformulario = true;
     }
 
-    // Verificar respuestas si el usuario ya ha ingresado datos
-    if (isset($_POST['respuesta'])) {
-        $respuestas = $_POST['respuesta'];
-        $aciertos = 0;
-        $errores = 0;
-        $resultados = [];
+    // Si se ha enviado desde el botón de resolver la tabla, activamos las dos banderas.
+    if((isset($_POST["resolver"]))){
+        $lprocesaformulario = true;
+        $lprocesatabla = true;
+    }
 
-        // Comprobamos cada respuesta ingresada por el usuario
-        foreach ($respuestas as $i => $fila) {
-            foreach ($fila as $j => $respuestaUsuario) {
-                $resultadoCorrecto = $i * $j;
-                if ($respuestaUsuario == $resultadoCorrecto) {
-                    $resultados[] = "<tr><td>$i x $j = $resultadoCorrecto (Correcto)</td></tr>";
-                    $aciertos++;
-                } else {
-                    $resultados[] = "<tr><td>$i x $j = $resultadoCorrecto (Tu respuesta: $respuestaUsuario, Incorrecto)</td></tr>";
-                    $errores++;
+    // Validamos el formulario, y creamos las cookies de ser necesario.
+    if ($lprocesaformulario){
+        // Recoger datos
+        $numTablas = $_POST["numTablas"];
+        $numPreguntas = $_POST["numPreguntas"];
+
+        // Recogemos los datos de la tabla si el usuario ha resuelto.
+        if ($lprocesatabla) {
+            $tabla = json_decode($_POST["tabla_oculta"], true);
+            $respuestas = array_slice($_POST, 2, $numPreguntas);
+            foreach ($respuestas as $respuesta => $valor) {
+                // Utilizando el metodo "explode()" podemos separar un string usando un separador.
+                $auxPartes = explode("-", $respuesta);
+                if ((($auxPartes[0]+1)*($auxPartes[1]+1))== $valor){
+                    $auxCorrecion = "correct";
                 }
+                else {
+                    $auxCorrecion = "incorrect";
+                }
+                $tabla[$auxPartes[0]][$auxPartes[1]] = "<input type='number' class='small $auxCorrecion' name='$auxPartes[0]-$auxPartes[1]' value='$valor'>";
+            }
+        }
+
+        // validamos que los campos tengan un valor mínimo.
+        if ($numTablas < 5) {
+            $lprocesaformulario = false;
+            $errorTablas = "Mínimo 5 tablas";
+        }
+        if ($numPreguntas < 5) {
+            $lprocesaformulario = false;
+            $errorPreguntas = "Mínimo 5 preguntas";
+        }
+        if (pow($numTablas, 2)<$numPreguntas) {
+            $lprocesaformulario = false;
+            $errorPreguntas = "Número de preguntas excede lo posible con $numTablas tablas";
+        }
+
+        // Si los datos introducidos son correctos, generamos la tabla con las preguntas.
+        if ($lprocesaformulario && !$lprocesatabla) {
+            // Generamos una tabla solo con valores "X"
+            $tabla = array_fill(0, $numTablas, array_fill(0, $numTablas, "X"));
+            $max = $numTablas - 1;
+            // Ahora cambiamos campos de X por nuevos inpus de preguntas del usuario.
+            for($i = 0; $i < $numPreguntas; $i++) {
+                // Vamos a generar combinaciones aleatorias que no tengan un input ya.
+                while (True) {
+                    $random1 = random_int($min, $max);
+                    $random2 = random_int($min, $max);
+                    // Si en esa posición del array hay una X, podemos poner un input
+                    if ($tabla[$random1][$random2] === "X") {
+                        break;
+                    }
+                }
+                // Ahora, asignamos el input en esa posición de nuestro array.
+                // Comprobamos si es correcto para poner un input de un color u otro.
+                $tabla[$random1][$random2] = "<input type='number' class='small' name='$random1-$random2' value=''>";
             }
         }
     }
-}
-?>
 
+?>
+<!-- VISTA -->
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multiplicaciones Aleatorias</title>
+    <title>Problemas de tabla de multiplicar</title>
+    <style>
+    td {
+        text-align: center;
+        width: 40px;
+        height: 20px;
+    }
+
+    .small {
+        width: 40px;
+        height: 20px;
+        border: 2px solid black; 
+    }
+
+    .correct {
+        border: 2px solid green;
+    }
+
+    .incorrect {
+        border: 2px solid red;
+    }
+</style>
 </head>
 <body>
-
-<h1>¿Cuántos huecos quieres?</h1>
-
-<?php if (isset($_POST['enviar_numeros'])): ?>
-    <form action="" method="POST">
-        <table border="1" cellpadding="5" cellspacing="0">
-            <?php
-            // Generamos la tabla con multiplicaciones y los huecos aleatorios
-            $count = 0; // Contador para las posiciones
-            for ($i = 1; $i <= 10; $i++) {
-                echo "<tr>";
-                for ($j = 1; $j <= 10; $j++) {
-                    $resultado = $i * $j;
-
-                    // Si la posición está entre las seleccionadas, generamos un input
-                    if (in_array($count, $posicionesHuecos)) {
-                        echo "<td>$i x $j = <input type='text' name='respuesta[$i][$j]'></td>";
-                    } else {
-                        echo "<td>$i x $j = ?</td>"; // Para el resto, dejamos el signo de interrogación
-                    }
-                    $count++;
-                }
-                echo "</tr>";
-            }
-            ?>
-        </table>
-        <input type="hidden" name="huecos" value="<?php echo $huecos; ?>">
-        <input type="submit" name="enviar_numeros" value="Comprobar">
+    <h1>Generador de problemas de tablas de multiplicar</h1>
+    <h3>Jesús Ferrer López</h3>
+    <form action="" method="post"> 
+        <label>Número de tablas de multiplicar</label>
+        <input type="number" name="numTablas" placeholder="5" value="<?php echo $numTablas;?>"><?php echo $errorTablas;?></br>
+        <label>Número de tablas de preguntas</label>
+        <input type="number" name="numPreguntas" placeholder="5" value ="<?php echo $numPreguntas;?>"><?php echo $errorPreguntas;?></br>
+        <input type="submit" name="generar" value="generar tabla"></br>
+        <?php if ($lprocesaformulario){ ?>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <?php
+                            echo "<th>X</th>"; 
+                            for($i=0; $i <$numTablas ; $i++) {
+                                echo "<th>" . ($i + 1) . "</th>";
+                            } 
+                        ?>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        if ($lprocesatabla) {
+                            $auxNumFila = 1;
+                            foreach ($tabla as $subArray) {
+                                echo "<tr>"; 
+                                echo "<td>$auxNumFila</td>";
+                                foreach ($subArray as $element) {
+                                    echo "<td>$element</td>"; 
+                                }
+                                echo "</tr>"; 
+                                $auxNumFila++;
+                            }
+                        }
+                        else {
+                            for($i=0; $i < $numTablas; $i++) {
+                                echo "<tr>";
+                                echo "<td>" . ($i + 1) ."</td>"; 
+                                for ($j = 0; $j < $numTablas; $j++) {
+                                    echo "<td>" . $tabla[$i][$j] . "</td>";
+                                }
+                                echo "</tr>";
+                            } 
+                        }
+                    ?>
+                </tbody>
+            </table>
+            <!-- Campo oculto para enviar la tabla con el formulario -->
+            <input type="hidden" name="tabla_oculta" value="<?php echo htmlspecialchars(json_encode($tabla)); ?>">
+            <input type="submit" name="resolver" value="resolver"></br>
+        <?php } ?>
     </form>
-
-    <?php if (isset($resultados)): ?>
-        <h2>Resultados</h2>
-        <table border="1" cellpadding="5" cellspacing="0">
-            <?php echo implode("", $resultados); ?>
-        </table>
-        <p><strong>Aciertos:</strong> <?php echo $aciertos; ?></p>
-        <p><strong>Errores:</strong> <?php echo $errores; ?></p>
-    <?php endif; ?>
-
-<?php else: ?>
-    <!-- Formulario inicial para pedir el número de huecos -->
-    <form method="POST">
-        <label>Indica cuántos huecos quieres: </label>
-        <input type="number" name="huecos" min="1" max="100" required>
-        <input type="submit" name="enviar_numeros" value="Generar">
-    </form>
-<?php endif; ?>
-
+    <div class="ver_codigo">
+        <button type="button"><a href="https://github.com/raulbermudez/DWES/blob/master/EjerciciosPHP/ud4/cookies/Ejercicio_propuesto.php">Ver código</a></button>
+    </div>   
 </body>
 </html>

@@ -28,7 +28,7 @@ $ejercicios = array (
             "Ejercicio 3" => ["./EjerciciosPHP/ud3/formularios/act_03.php", "Pedir datos para el curriculum"],
             "Ejercicio 4" => ["./EjerciciosPHP/ud3/formularios/act_04.php", "Recibes un pais por el formulario y le das su capital y la bandera al usuario"],
             "Ejercicio 5" => ["./EjerciciosPHP/ud3/formularios/act_05.php", "Pedir el numero de numeros a sumar y luego poner los numeros sumados"],
-            "Ejercicio repaso examen" => ["./EjerciciosPHP/Ejemplos/formularios/ej5/ej5.php", "Hacer un formulario con arrays y validarlo"]
+            "Ejercicio repaso examen" => ["./EjerciciosPHP/Ejemplos/ud3/formularios/ej5/ej5.php", "Hacer un formulario con arrays y validarlo"]
         ]
     ],
     "Unidad 4" =>[
@@ -42,6 +42,9 @@ $ejercicios = array (
         "sesiones" => [
             "Ejercicio 1" => ["./EjerciciosPHP/ud4/sesiones/act_01.php", "Creación de una agenda de contactos con sesiones"],
             "Ejercicio 2" => ["./EjerciciosPHP/ud4/sesiones/act_02.php", "Creación de puzzles para niños"]
+        ],
+        "ficheros" => [
+            "Ejercicio 1" => ["./EjerciciosPHP/ud4/ficheros/test2.php", "Ejercicio de creacion de comandos"]
         ]
     ],
     "Proyectos" => ["calendario" => ["calendario" => ["./Proyetos/calendario/calendario.php", "Primer proyecto el calendario."]]]

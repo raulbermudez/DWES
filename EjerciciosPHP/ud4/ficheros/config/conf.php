@@ -22,6 +22,6 @@ $grupos = array("1DAW", "2DAW", "1ASIR", "2ASIR");
 $formato = array("Linux", "MySql");
 
 // Declaro la extension y formato válido
-$allowedExt = "csv";
-$allowedFormat = "text/csv";
+$allowedExt = array("csv");
+$allowedFormat = array("text/csv");
 ?>

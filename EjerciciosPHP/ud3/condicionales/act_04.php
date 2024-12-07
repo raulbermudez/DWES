@@ -21,16 +21,16 @@ settype($mes, "integer");
 
 // Para la imagen de la cabecera
 if ($mes >= 12 && $mes <= 2) {
-    $estacion_year = "imganes/foto_invierno.jpeg";
+    $estacion_year = "imagenes/foto_invierno.jpeg";
 }
 else if ($mes >= 3 && $mes <= 5) {
-    $estacion_year = "imgagenes/imagen_primavera.jpg";
+    $estacion_year = "imagenes/imagen_primavera.jpg";
 }
 else if ($mes >= 6 && $mes <= 8) {
-    $estacion_year = "imgagenes/imagen_verano.jpg";
+    $estacion_year = "imagenes/imagen_verano.jpg";
 }
 else {
-    $estacion_year = "imgagenes/imagen_otoño.jpg";
+    $estacion_year = "imagenes/imagen_otoño.jpg";
 }
 
 
@@ -56,8 +56,8 @@ else {
         body {background-color: <?php echo $color_fondo ?>;}
 
         img {
-            width: 35px; 
-            height: 25px;
+            width: 500px; 
+            height: 500px;
         }
 
         .code {
@@ -67,7 +67,7 @@ else {
 </head>
 <body>
     <header>
-        <img width="100%" height="720" src=<?php echo $estacion_year ?>>
+        <img src=<?php echo $estacion_year ?>>
     </header>
     <div class="code">
         <button type="button"><a href="https://github.com/raulbermudez/DWES/blob/master/EjerciciosPHP/ud3/condicionales/act_04.php">Ver código</a></button>

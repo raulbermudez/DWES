@@ -9,24 +9,25 @@ $mes = 3;
 $año = 2010;
 
 $fecha_actual = date('Y-m-d'); // Esto crea una fecha en el formato ('YYYY-mm-dd')
-$fecha_nacimiento($año, $mes, $dia); // Asi tambien puedo crear una fecha igual que la anterior con variables
+$fecha_nacimiento = date($año . "-" . $mes . "-" . $dia); // Asi tambien puedo crear una fecha igual que la anterior con variables
 
 // Paso ambas variables a datetime porque asi puedo usar operadores para compararlas
 
-$fecha_nac = new DateTime($fecha_nacimiento);
-$fecha_act = new DateTime($fecha_actual);
+$fechaNacimiento = new DateTime($fecha_nacimiento);
+$fechaActual = new DateTime($fecha_actual);
 
 // Ahora con os cndicionales y el operador de mayor menor compruebo si la fecha es anterior a hoy o no
 
-if ($fechaNacimientoObj > $fechaActualObj) {
+if ($fechaNacimiento > $fechaActual) {
     echo "La fecha de nacimiento no puede ser mayor que la fecha actual.";
 } else {
     // Calcular la diferencia entre la fecha actual y la fecha de nacimiento
-    $diferencia = $fechaActualObj->diff($fechaNacimientoObj); // el dif es una funcion que calcula la diferencia de dias, años, meses, etc
+    $diferencia = $fechaActual->diff($fechaNacimiento); // el dif es una funcion que calcula la diferencia de dias, años, meses, etc
 }
 
     // Obtener la edad
     $edad = $diferencia->y; // El uso de la y viene del diff y te muestra la diferencia en años
+    echo $edad;
 
 ?>
 

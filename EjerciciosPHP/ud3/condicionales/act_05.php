@@ -25,7 +25,7 @@ $tipo_perfil = 'usuario'
     </style>
 </head>
 <body>
-    <?php if ($tipo_prfil == "usuario"): ?>
+    <?php if ($tipo_perfil == "usuario"): ?>
         <p>Conectado como usuario</p>
         <a href="#">Enlace 1</a>
         <a href="#">Enlace 2</a>

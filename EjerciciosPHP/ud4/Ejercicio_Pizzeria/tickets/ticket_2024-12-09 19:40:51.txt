@@ -1,0 +1,4 @@
+Pizzas:
+4 ---- Bacon Crispy Gourmet ----- Tamaño: individual <b>Precio:</b> 4
+Total a pagar:
+Total del pedido: 4

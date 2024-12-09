@@ -40,11 +40,16 @@ $ejercicios = array (
             "Ejercicio 5" => ["./EjerciciosPHP/ud4/cookies/act05.php", "Crea una cookie que te muestre el tiempo desde la ultima conexion"]
         ],
         "sesiones" => [
+            "Ejercicio 1" => ["./EjerciciosPHP/ud4/autenticacion/ej1/index.php", "Formulario de acceso a una pagina privada"],
+            "Ejercicio 2" => ["./EjerciciosPHP/ud4/autenticacion/ej2/index.php", "Formulario como el anterior pero con distintos roles"]
+        ],
+        "autenticacion" => [
             "Ejercicio 1" => ["./EjerciciosPHP/ud4/sesiones/act_01.php", "Creación de una agenda de contactos con sesiones"],
             "Ejercicio 2" => ["./EjerciciosPHP/ud4/sesiones/act_02.php", "Creación de puzzles para niños"]
         ],
         "ficheros" => [
-            "Ejercicio 1" => ["./EjerciciosPHP/ud4/ficheros/test2.php", "Ejercicio de creacion de comandos"]
+            "Ejercicio 1" => ["./EjerciciosPHP/ud4/ficheros/ej1/test2.php", "Ejercicio de creacion de comandos"],
+            "Ejercicio 2" => ["./EjerciciosPHP/ud4/ficheros/ej2/index.php", "Ejercicio de galeria de fotos"]
         ]
     ],
     "Proyectos" => ["calendario" => ["calendario" => ["./Proyetos/calendario/calendario.php", "Primer proyecto el calendario."]]]

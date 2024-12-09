@@ -1,0 +1,9 @@
+Pizzas:
+1 ---- Barbacoa Gourmet ----- Tamaño: media <b>Precio:</b> 2
+1 ---- Bacon Crispy Gourmet ----- Tamaño: individual <b>Precio:</b> 1
+Postres:
+1 ---- Chocolate Fudge Brownie(465ml) ----- <b>Precio:</b> 2
+Bebidas:
+1 ---- Lata el Aguila 1900 ----- <b>Precio:</b> 1.5
+Total a pagar:
+Total del pedido: 6.5

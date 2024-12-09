@@ -4,6 +4,10 @@ if ($_SESSION['usuario'] != "Administrador"){
     header("location: index.php");
 }
 
+if (isset($_POST['volver'])){
+    header("location: index.php");
+}
+
 // Ruta de la carpeta donde se encuentran los archivos .txt // Cambia esto por la ruta de tu carpeta
 $aPendientes = $aElaborados = "";
 $directorio = "comandas/";
@@ -68,5 +72,8 @@ if (!empty($archivos_txt)) {
     <ul>
         <?php echo $aElaborados; ?>
     </ul>
+    <form action="" method="post">
+        <button type="submit" name="volver">Volver a inicio</button>
+    </form>
 </body>
 </html>

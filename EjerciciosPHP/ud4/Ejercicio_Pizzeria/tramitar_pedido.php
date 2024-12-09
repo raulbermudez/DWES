@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if (isset($_POST['volver'])){
+        header("location: index.php");
+    }
     $aCarrito = $_SESSION['carrito'];
     $contenido = "";
     // Defino el nombre del archivo de ticket
@@ -29,5 +32,9 @@
     <body>
         <h2>El total del pedido ha sido <?php echo $_SESSION['tramitar']['total']?></h2>
         <a href="descargar_ticket.php?archivo=<?php echo $ticket_name; ?>">Pulse aquí para descargar su ticket</a>
+
+        <form action="" method="post">
+            <button type="submit" name="volver">Volver a inicio</button>
+        </form>
     </body>
 </html>

@@ -29,6 +29,9 @@ $ejercicios = array (
             "Ejercicio 4" => ["./EjerciciosPHP/ud3/formularios/act_04.php", "Recibes un pais por el formulario y le das su capital y la bandera al usuario"],
             "Ejercicio 5" => ["./EjerciciosPHP/ud3/formularios/act_05.php", "Pedir el numero de numeros a sumar y luego poner los numeros sumados"],
             "Ejercicio repaso examen" => ["./EjerciciosPHP/Ejemplos/ud3/formularios/ej5/ej5.php", "Hacer un formulario con arrays y validarlo"]
+        ],
+        "Ejercicio propuesto" => [
+            "Pizzeria" => ["./EjerciciosPHP/ud4/Ejercicio_Pizzeria/index.php", "Crear el diseño de una pizzeria con un carrito y zona privada"]
         ]
     ],
     "Unidad 4" =>[

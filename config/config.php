@@ -55,7 +55,7 @@ $ejercicios = array (
             "Pizzeria" => ["./EjerciciosPHP/ud4/Ejercicio_Pizzeria/index.php", "Crear el diseño de una pizzeria con un carrito y zona privada"]
         ]
     ],
-    "Proyectos" => ["calendario" => ["calendario" => ["./Proyetos/calendario/calendario.php", "Primer proyecto el calendario."]]]
+    "Proyectos" => ["calendario" => ["calendario" => ["./Proyectos/calendario/calendario.php", "Primer proyecto el calendario."]]]
 );  
 
 return $ejercicios;

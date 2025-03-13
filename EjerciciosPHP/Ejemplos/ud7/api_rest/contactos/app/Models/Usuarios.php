@@ -18,7 +18,7 @@ class Usuarios extends DBAbstractModel{
         $this->query = "SELECT * FROM usuarios WHERE usuario = :nombre AND password = :password";
         $this->parametros['nombre'] = $usuario;
         $this->parametros['password'] = $password;
-        $this->get_results_from_query();
+        $this->getResultFromQuery();
         if (count($this->rows) == 1) {
             foreach ($this->rows[0] as $propiedad => $valor) {
                 $this->$propiedad = $valor;

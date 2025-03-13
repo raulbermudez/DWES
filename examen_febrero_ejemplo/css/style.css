@@ -1,0 +1,50 @@
+.flexeo{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.red{
+    background-color: red;
+    color: red;
+}
+
+.black{
+    background-color: black;
+    color: black;
+}
+
+.green{
+    background-color: green;
+    color: green;
+}
+
+.white{
+    background-color: white;
+    color: white;
+}
+
+.pink{
+    background-color: pink;
+    color: pink;
+}
+
+.yellow{
+    background-color: yellow;
+    color: yellow;
+}
+
+.purple{
+    background-color: purple;
+    color: purple;
+}
+
+.orange{
+    background-color: orange;
+    color: orange;
+}
+
+.blue{
+    background-color: blue;
+    color: blue;
+}

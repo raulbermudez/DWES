@@ -23,7 +23,7 @@ class Contactos extends DBAbstractModel{
         $this->parametros['nombre'] = $nombre;
         $this->parametros['telefono'] = $telefono;
         $this->parametros['email'] = $email;
-        $this->get_results_from_query();
+        $this->getResultFromQuery();
         $this->mensaje = "Contacto agregado";
 
     }
@@ -32,7 +32,7 @@ class Contactos extends DBAbstractModel{
         if ($id != '') {
             $this->query = "SELECT * FROM contactos WHERE id = :id";
             $this->parametros['id'] = $id;
-            $this->get_results_from_query();
+            $this->getResultFromQuery();
         }
         if (count($this->rows) == 1) {
             foreach ($this->rows[0] as $propiedad => $valor) {
@@ -55,14 +55,20 @@ class Contactos extends DBAbstractModel{
         $this->parametros['telefono'] = $telefono;
         $this->parametros['email'] = $email;
         $this->parametros['id'] = $id;
-        $this->get_results_from_query();
+        $this->getResultFromQuery();
         $this->mensaje = "Contacto modificado";
     }
 
     public function delete($id = ''){
         $this->query = "DELETE FROM contactos WHERE id = :id";
         $this->parametros['id'] = $id;
-        $this->get_results_from_query();
+        $this->getResultFromQuery();
         $this->mensaje = "Contacto eliminado";
+    }
+
+    public function getAll(){
+        $this->query = "SELECT * FROM contactos";
+        $this->getResultFromQuery();
+        return $this->rows;
     }
 }

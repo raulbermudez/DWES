@@ -9,18 +9,18 @@ abstract class DBAbstractModel
     private static $db_port = DBPORT;
     protected $mensaje = '';
     protected $conn; // Manejador de la BD
-    // Manejo básico para consultas.
+    // Manejo básico para consultas.
     protected $query; // consulta
-    protected $parametros = array(); // parámetros de entrada
+    protected $parametros = array(); // parámetros de entrada
     protected $rows = array(); // array con los datos de salida
 
-    // Métodos abstractos para implementar en los diferentes módulos.
+    // Métodos abstractos para implementar en los diferentes módulos.
     abstract protected function get();
     abstract protected function set();
     abstract protected function edit();
     abstract protected function delete();
 
-    # Crear conexión a la base de datos.
+    # Crear conexión a la base de datos.
     protected function open_connection()
     {
         $dsn = 'mysql:host=' . self::$db_host . ';' . 'dbname=' . self::$db_name . ';' . 'port=' . self::$db_port;
@@ -28,12 +28,12 @@ abstract class DBAbstractModel
             $this->conn = new \PDO($dsn, self::$db_user, self::$db_pass, array(\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
             return $this->conn;
         } catch (\PDOException $e) {
-            printf("Conexión fallida: %s\n", $e->getMessage());
+            printf("Conexión fallida: %s\n", $e->getMessage());
             exit();
         }
     }
 
-    # Método que devuelve el último id introducido.
+    # Método que devuelve el último id introducido.
     public function lastInsert()
     {
         return $this->conn->lastInsertId();
@@ -60,7 +60,7 @@ abstract class DBAbstractModel
 
     # Traer resultados de una consulta en un Array
     # Consulta que devuelve tuplas de la tabla.
-    protected function get_results_from_query()
+    protected function getResultFromQuery()
     {
         $this->open_connection();
         if (($_stmt = $this->conn->prepare($this->query))) {
@@ -80,7 +80,7 @@ abstract class DBAbstractModel
             } catch (\PDOException $e) {
                 printf("Error en consulta: %s\n", $e->getMessage());
             }
-        }
     }
+ }
 }
 ?>
